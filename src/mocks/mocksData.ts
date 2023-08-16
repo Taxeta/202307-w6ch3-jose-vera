@@ -1,4 +1,4 @@
-export const toDoTask = [
+export const toDoMock = [
   {
     id: 1,
     name: "Gym",
