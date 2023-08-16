@@ -7,7 +7,7 @@ const initialToDosState: ToDoState = {
 };
 
 const toDosSlice = createSlice({
-  name: "",
+  name: "todos",
   initialState: initialToDosState,
   reducers: {
     loadToDos: (
@@ -17,9 +17,11 @@ const toDosSlice = createSlice({
       const newState = {
         toDos: action.payload,
       };
+
       return newState;
     },
   },
 });
 
 export const toDosReducer = toDosSlice.reducer;
+export const { loadToDos: loadToDosActionCreator } = toDosSlice.actions;
