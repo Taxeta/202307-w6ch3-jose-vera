@@ -1,4 +1,4 @@
-import { toDoTask } from "../../data";
+import { toDoTask } from "../../mocks/mocksData";
 import { ToDo } from "../../types";
 import { loadToDosActionCreator, toDosReducer } from "./toDosSlice";
 import { ToDoState } from "./types";

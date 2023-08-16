@@ -13,13 +13,15 @@ const toDosSlice = createSlice({
     loadToDos: (
       _currentToDosState,
       action: PayloadAction<ToDo[]>,
-    ): ToDoState => {
-      const newState = {
-        toDos: action.payload,
-      };
-
-      return newState;
-    },
+    ): ToDoState => ({ toDos: action.payload }),
+    deleteToDo: (
+      currentToDoState,
+      action: PayloadAction<number>,
+    ): ToDoState => ({
+      toDos: currentToDoState.toDos.filter(
+        (toDo) => toDo.id !== action.payload,
+      ),
+    }),
   },
 });
 
