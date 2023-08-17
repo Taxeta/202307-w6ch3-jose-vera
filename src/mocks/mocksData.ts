@@ -12,3 +12,9 @@ export const toDoMock: ToDo[] = [
     isDone: true,
   },
 ];
+
+export const newToDoMock: ToDo = {
+  id: 3,
+  name: "PlayGames",
+  isDone: true,
+};
