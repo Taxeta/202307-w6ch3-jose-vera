@@ -20,7 +20,7 @@ const ToDoCard = ({
           <span>{id}</span>
         </li>
         <li>
-          <span>{name}</span>
+          <span aria-label={`${name}`}>{name}</span>
         </li>
         <li>
           <button></button>
