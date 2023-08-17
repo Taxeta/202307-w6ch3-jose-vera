@@ -1,4 +1,6 @@
-export const toDoMock = [
+import { ToDo } from "../types";
+
+export const toDoMock: ToDo[] = [
   {
     id: 1,
     name: "Gym",
