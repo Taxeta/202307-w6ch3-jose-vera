@@ -1,29 +1,30 @@
 import { useDispatch } from "react-redux";
 import { loadToDoActionCreator } from "../../store/toDos/toDosSlice";
 import { ToDo } from "../../types";
+import "./ToDoCard.css";
 
 interface ToDoCardProps {
   todo: ToDo;
 }
 
 const ToDoCard = ({
-  todo: { id, name },
+  todo: { id, name, isDone },
 }: ToDoCardProps): React.ReactElement => {
   const dispatch = useDispatch();
 
   dispatch(loadToDoActionCreator);
 
   return (
-    <article>
-      <ul>
+    <article className="container">
+      <ul className="container__Card">
         <li>
-          <span>{id}</span>
+          <span>ToDo Number: {id}</span>
         </li>
         <li>
-          <span aria-label={`${name}`}>{name}</span>
+          <h2>ToDo Name: {name}</h2>
         </li>
         <li>
-          <button></button>
+          <button>{isDone ? "Done" : "Not Done"}</button>
         </li>
       </ul>
     </article>

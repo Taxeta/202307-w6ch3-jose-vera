@@ -1,17 +1,22 @@
 import { useEffect } from "react";
-import { toDoData } from "../../data";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppDispatch } from "../../store";
+import { toDoData } from "../../store/data";
 import { loadToDoActionCreator } from "../../store/toDos/toDosSlice";
+import ToDosList from "../ToDosList/ToDosList";
 
 const App = (): React.ReactElement => {
-  useAppSelector((state) => state.toDosState.toDos);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadToDoActionCreator(toDoData));
-  });
+  }, [dispatch]);
 
-  return <h1>To Do List</h1>;
+  return (
+    <>
+      <h1>To Do List</h1>
+      <ToDosList />
+    </>
+  );
 };
 
 export default App;
