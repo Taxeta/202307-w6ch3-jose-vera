@@ -1,4 +1,6 @@
-export const toDoMock = [
+import { ToDo } from "../types";
+
+export const toDoMock: ToDo[] = [
   {
     id: 1,
     name: "Gym",
@@ -10,3 +12,9 @@ export const toDoMock = [
     isDone: true,
   },
 ];
+
+export const newToDoMock: ToDo = {
+  id: 3,
+  name: "PlayGames",
+  isDone: true,
+};
