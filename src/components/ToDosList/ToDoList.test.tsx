@@ -2,21 +2,21 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../store";
 import { toDoData } from "../../store/data";
-import ToDosList from "./ToDosList";
+import App from "../App/App";
 
-describe("Given a ToDoList component", () => {
+describe("Given a App component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show a list of cards headings", () => {
+    test("Then it should show a list of cards headings", async () => {
       render(
         <Provider store={store}>
-          <ToDosList />
+          <App />
         </Provider>,
       );
 
       toDoData.forEach((toDo) => {
-        const headingTest = screen.getByRole("heading", { name: toDo.name });
+        const ToDoHeading = screen.getByRole("heading", { name: toDo.name });
 
-        expect(headingTest).toBeInTheDocument();
+        expect(ToDoHeading).toBeInTheDocument();
       });
     });
   });

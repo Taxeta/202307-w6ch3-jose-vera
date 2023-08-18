@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../../store";
+import { toDoMock } from "../../mocks/mocksData";
+import { setupStore } from "../../store";
 import { ToDo } from "../../types";
 import ToDoCard from "./ToDoCard";
 
@@ -13,6 +14,12 @@ describe("Given a ToDoCard component", () => {
         isDone: false,
       };
 
+      const store = setupStore({
+        toDosState: {
+          toDos: toDoMock,
+        },
+      });
+
       const headingText = "gym";
 
       render(
@@ -24,6 +31,7 @@ describe("Given a ToDoCard component", () => {
       const heading = screen.getByRole("heading", {
         name: headingText,
       });
+
       expect(heading).toBeInTheDocument();
     });
   });

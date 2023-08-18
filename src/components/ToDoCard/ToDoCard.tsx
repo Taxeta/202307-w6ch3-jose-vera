@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { loadToDoActionCreator } from "../../store/toDos/toDosSlice";
+import { toggleToDoActionCreator } from "../../store/toDos/toDosSlice";
 import { ToDo } from "../../types";
 import "./ToDoCard.css";
 
@@ -12,21 +12,22 @@ const ToDoCard = ({
 }: ToDoCardProps): React.ReactElement => {
   const dispatch = useDispatch();
 
-  dispatch(loadToDoActionCreator);
+  const toggleToDoButton = (id: number) => {
+    dispatch(toggleToDoActionCreator(id));
+  };
 
   return (
     <article className="container">
-      <ul className="container__Card">
-        <li>
-          <span>ToDo Number: {id}</span>
-        </li>
-        <li>
-          <h2>ToDo Name: {name}</h2>
-        </li>
-        <li>
-          <button>{isDone ? "Done" : "Not Done"}</button>
-        </li>
-      </ul>
+      <div className="container__Card">
+        <span>ToDo Number: {id}</span>
+        <h2>{name}</h2>
+        <button
+          className="container__button"
+          onClick={() => toggleToDoButton(id)}
+        >
+          {isDone ? "Done" : "Not Done"}
+        </button>
+      </div>
     </article>
   );
 };
